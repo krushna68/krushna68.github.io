@@ -39,6 +39,32 @@
 
         <!--========== CSS ==========-->
         <link rel="stylesheet" href="assets/css/styles.css">
+        
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '{your-app-id}',
+      cookie     : true,
+      xfbml      : true,
+      version    : '{api-version}'
+    });
+      
+    FB.AppEvents.logPageView();   
+      
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "https://connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+   
+FB.getLoginStatus(function(response) {
+    statusChangeCallback(response);
+});
+</script>
     <script type="text/javascript">
         var _gaq = _gaq || [];
 
@@ -56,6 +82,7 @@
             var s = document.getElementsByTagName('script')[0];
             s.parentNode.insertBefore(ga, s);
         })();
+        
     </script>
     
         <div id="ndzn-ajax-data" style="display:none!important">
@@ -84,23 +111,25 @@
     <script type="text/javascript" src="/assets/js/discord.js"></script>
     <div id="waiting-overlay" style="display: none;">
         <i class="fa fa-cog fa-spin fa-3x"></i>
+  
     </div>
     </head>
     <body>
-              <!--========== HEADER ==========-->
+        <!--========== HEADER ==========-->
         <header class="header">
-
+            <div class="header__container">
     
                 <div class="header__toggle">
                     <i class='bx bx-menu' id="header-toggle"></i>
                 </div>
             </div>
         </header>
-           <!--========== NAV ==========-->
+
+        <!--========== NAV ==========-->
         <div class="nav" id="navbar">
             <nav class="nav__container">
                 <div>
-                    <a href="/index.html" class="nav__link nav__logo">
+                    <a href="#" class="nav__link nav__logo">
                         <i class='bx bxs-disc nav__icon' ></i>
                         <span class="nav__logo-name">MoG Network</span>
                     </a>
@@ -109,7 +138,7 @@
                         <div class="nav__items">
                             <h3 class="nav__subtitle"></h3>
     
-                               <a href="/index.html" class="nav__link active">
+                            <a href="#" class="nav__link active">
                                 <i class='bx bx-home nav__icon' ></i>
                                 <span class="nav__name">Home</span>
                             </a>
@@ -123,26 +152,15 @@
                                 <i class='bx bx-cart nav__icon' ></i>
                                 <span class="nav__name">Store</span>
                             </a>
-                                                                                        <div class="nav__dropdown">
-                                <a href="/game.html" class="nav__link">
-                                    <i class='bx bx-joystick nav__icon' ></i>
-                                    <span class="nav__name">Game</span>
-                                    <i class='bx bx-chevron-down nav__icon nav__dropdown-icon'></i>
-                                </a>
-
-                                <div class="nav__dropdown-collapse">
-                                    <div class="nav__dropdown-content">
-                                        <a href="/rps.html" class="nav__dropdown-item">Rock Paper Scissor</a>
-                                        <a href="/ttt.html" class="nav__dropdown-item">Tic Tac Toe</a>
-                                    </div>
-                                </div>
-
-                            </div>
                             <a href="https://discord.gg/moggaming" class="nav__link">
                                 <i class='bx bx-message-rounded nav__icon' ></i>
                                 <span class="nav__name">Support</span>
                             </a>
-                                            <a href="https://discord.com/api/oauth2/authorize?client_id=798657819993702450&redirect_uri=https%3A%2F%2Fmognets.krushnaplayz.repl.co%2Floggedin.html&response_type=code&scope=identify" class="nav__link nav__logout">
+                        </div>
+                    </div>
+                </div>
+
+                <a href="https://discord.com/api/oauth2/authorize?client_id=873821033705127936&redirect_uri=https%3A%2F%2Fmognets.krushnaplayz.repl.co&response_type=code&scope=identify" class="nav__link nav__logout">
                     <i class='bx bx-log-in nav__icon' ></i>
                     <span class="nav__name">Log in</span>
                 </a>
@@ -153,6 +171,7 @@
 
         <!--========== MAIN JS ==========-->
         <script src="assets/js/main.js"></script>
+        
     </body>
 
         <main id="site-main">

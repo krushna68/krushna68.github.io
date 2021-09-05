@@ -1,13 +1,11 @@
 <!DOCTYPE html>
-<html lang="">
-
+<html lang="en">
 <head>
-
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-
-    <title>MoG Network</title>
-        <link rel="shortcut icon" href="https://media.discordapp.net/attachments/852612121124012082/862693750131261490/mog-removebg-preview.png">
+    <meta charset="UTF-8">
+    <title>MoG Network | Tic Tac Toe</title>
+    <link rel="stylesheet" href="tictactoe/ttt.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+            <link rel="shortcut icon" href="https://media.discordapp.net/attachments/852612121124012082/862693750131261490/mog-removebg-preview.png">
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i&display=swap" rel="stylesheet">
@@ -88,68 +86,17 @@
     <div id="waiting-overlay" style="display: none;">
         <i class="fa fa-cog fa-spin fa-3x"></i>
     </div>
-    </head>
 </head>
 <body>
+          <!--========== HEADER ==========-->
+        <header class="header">
 
-
-<body class="home-template">
-
-    <div class="site-wrapper">
-
-        <div id="ndzn-bg"></div>
-        <div id="ndzn-header">
-            <div class="header-glow"></div>
-            <div class="header-content">
-                <div class="play-now-mobile flex-center">
-                    <b>Learn how to join our server and start playing in 30 seconds</b>
-                    <a href="/how-to-play" class="btn btn-orange">Play Now</a>
+    
+                <div class="header__toggle">
+                    <i class='bx bx-menu' id="header-toggle"></i>
                 </div>
-                <div class="header-socials">
-                    <div class="container flex-center">
-                        <div class="socials flex-center">
-                            <a href="https://www.instagram.com/mog.gamingyt/" class="button button-social flex-center" target="_blank">
-                        <i class="mdi mdi-instagram"></i>
-                        <span>Instagram</span>
-                    </a>
-                            <a href="https://discord.gg/moggaming" class="button button-discord button-social button-social-highlighted flex-center" target="_blank">
-                        <i class="mdi mdi-discord"></i>
-                        <span>Discord</span>
-                        <b style="display:none" class="ndzn-js--discordcount">0</b>
-                    </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="header-main">
-                    <div class="container flex-center">
-                        <div class="main-left">
-                            <a href="/" class="logo"></a>
-
-<style>
-  {
-  background-color: black;
-  font-family: cursive;
-}
-
-.glow {
-  font-size: 80px;
-  color: #ff7b3d;
-  text-align: center;
-  animation: glow 1s ease-in-out infinite alternate;
-}
-
-@-webkit-keyframes glow {
-  from {
-    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #f58b58, 0 0 40px #f58b58, 0 0 50px #f58b58, 0 0 60px #f58b58, 0 0 70px #f58b58;
-  }
-  
-  to {
-    text-shadow: 0 0 20px #fff, 0 0 30px #d16430, 0 0 40px #d16430, 0 0 50px #d16430, 0 0 60px #d16430, 0 0 70px #d16430, 0 0 80px #d16430;
-  }
-}
-  </style>
-  
-<h1 class="glow">COMING SOON!!</h1>
+            </div>
+        </header>
            <!--========== NAV ==========-->
         <div class="nav" id="navbar">
             <nav class="nav__container">
@@ -173,14 +120,25 @@
                                     <span class="nav__name">Vote</span>
                                 </a>
 
-                            <a href="/comingsoon.html" class="nav__link active">
+                            <a href="/comingsoon.html" class="nav__link">
                                 <i class='bx bx-cart nav__icon' ></i>
                                 <span class="nav__name">Store</span>
                             </a>
-                                <a href="/game.html" class="nav__link">
-                                <i class='bx bx-joystick nav__icon' ></i>
-                                <span class="nav__name">Game</span>
+                               <div class="nav__dropdown">
+                                <a href="/game.html" class="nav__link active">
+                                    <i class='bx bx-joystick nav__icon' ></i>
+                                    <span class="nav__name">Game</span>
+                                    <i class='bx bx-chevron-down nav__icon nav__dropdown-icon'></i>
                                 </a>
+
+                                <div class="nav__dropdown-collapse">
+                                    <div class="nav__dropdown-content">
+                                        <a href="/rps.html" class="nav__dropdown-item">Rock Paper Scissor</a>
+                                        <a href="/ttt.html" class="nav__link active" class="nav__dropdown-item">Tic Tac Toe</a>
+                                    </div>
+                                </div>
+
+                            </div>
                             <a href="https://discord.gg/moggaming" class="nav__link">
                                 <i class='bx bx-message-rounded nav__icon' ></i>
                                 <span class="nav__name">Support</span>
@@ -192,10 +150,53 @@
 
         <!--========== MAIN JS ==========-->
         <script src="assets/js/main.js"></script>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+  <!-- select box -->
+  <div class="select-box">
+    <header>Tic Tac Toe</header>
+    <div class="content">
+      <div class="title">Select which you want to be?</div>
+      <div class="options">
+        <button class="playerX">Player (X)</button>
+        <button class="playerO">Player (O)</button>
+      </div>
+    </div>
+  </div> 
+
+  <!-- playboard section -->
+  <div class="play-board">
+    <div class="details">
+      <div class="players">
+        <span class="Xturn">X's Turn</span>
+        <span class="Oturn">O's Turn</span>
+        <div class="slider"></div>
+      </div>
+    </div>
+    <div class="play-area">
+      <section>
+        <span class="box1"></span>
+        <span class="box2"></span>
+        <span class="box3"></span>
+      </section>
+      <section>
+        <span class="box4"></span>
+        <span class="box5"></span>
+        <span class="box6"></span>
+      </section>
+      <section>
+        <span class="box7"></span>
+        <span class="box8"></span>
+        <span class="box9"></span>
+      </section>
+    </div>
+  </div>
+
+  <!-- result box -->
+  <div class="result-box">
+    <div class="won-text"></div>
+    <div class="btn"><button>Replay</button></div>
+  </div>
+
+  <script src="tictactoe/ttt.js"></script>
+
+</body>
+</html>
